@@ -9,4 +9,11 @@ public class MainPageController {
     public String mainPage() {
         return "mainPage";
     }
+
+    @GetMapping("/catalog")
+    public String catalogView(){
+        return "catalogOfStamps";
+    }
+
+
 }
