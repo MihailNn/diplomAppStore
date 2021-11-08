@@ -9,4 +9,26 @@
 <body>
 <h1>Catalog of Stamps</h1>
 </body>
+    <table>
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="st: ${stamps}">
+            <td th:text="${st.code}">1</td>
+            <td th:text="${st.country}">1</td>
+            <td th:text="${st.year}">1</td>
+            <td th:text="${st.description}">1</td>
+            <td th:text="${st.price}">1</td>
+            <td th:text="${st.qauntity}">1</td>
+        </tr>
+        </tbody>
+    </table>
 </html>

@@ -13,6 +13,6 @@ public class Stamp {
     private String theme;
     private String description;
     private String code;
-    private int qauntity;
+    private int year;
     private double price;
 }
