@@ -1,13 +1,21 @@
-package iba.group.diplomAppStore.model;
+package iba.group.diplomAppStore.domain;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@Entity
 public class Customer {
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
     @NotNull
     @Size(min=2, message="Name must be at least 2 characters long")
     private String firstName;

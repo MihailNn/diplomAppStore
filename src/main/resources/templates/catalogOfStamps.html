@@ -12,7 +12,7 @@
     <table>
         <thead>
         <tr>
-            <th>Code</th>
+            <th>Theme</th>
             <th>Country</th>
             <th>Year</th>
             <th>Description</th>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         <tr th:each="st: ${stamps}">
-            <td th:text="${st.code}">1</td>
+            <td th:text="${st.theme}">1</td>
             <td th:text="${st.country}">1</td>
             <td th:text="${st.year}">1</td>
             <td th:text="${st.description}">1</td>
