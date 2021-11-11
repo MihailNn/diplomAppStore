@@ -16,6 +16,7 @@ public class Stamp {
     private String country;
     private String theme;
     private String description;
+    private String image;
     private Integer year;
     private Double price;
     private Integer quantity;

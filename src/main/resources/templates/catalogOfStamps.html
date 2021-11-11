@@ -9,23 +9,25 @@
 <body>
 <h1>Catalog of Stamps</h1>
 </body>
-    <table>
+    <table border="1" >
         <thead>
         <tr>
             <th>Theme</th>
             <th>Country</th>
             <th>Year</th>
             <th>Description</th>
+            <th>Image</th>
             <th>Price</th>
             <th>Quantity</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="st : ${stamps}">
+        <tr align="center" th:each="st : ${stamps}">
             <td th:text="${st.theme}">1</td>
             <td th:text="${st.country}">1</td>
             <td th:text="${st.year}">1</td>
             <td th:text="${st.description}">1</td>
+            <td><img th:src="@{'/images/' + ${st.image}}" alt="img"></td>
             <td th:text="${st.price}">1</td>
             <td th:text="${st.quantity}">1</td>
         </tr>
