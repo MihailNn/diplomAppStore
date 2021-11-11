@@ -12,11 +12,5 @@ public class MainPageController {
         return "mainPage";
     }
 
-    @GetMapping("/catalog")
-    public String catalogView(){
-//        model.addAttribute("stamps", new Stamp());
-        return "catalogOfStamps";
-    }
-
 
 }
