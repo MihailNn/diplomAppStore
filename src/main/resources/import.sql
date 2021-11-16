@@ -1,6 +1,6 @@
 delete from Stamp;
-delete from Order_Stamp;
-delete from Customer;
+delete from Stamp_Order;
+delete from User;
 
 insert into Stamp (id, country, theme, description, image, year, price, quantity) values (1114, 'Belarus', 'New Year', 'New Year and Christmas', 'by1390-1.jpg', 2020, 1.17, 7);
 insert into Stamp (id, country, theme, description, image, year, price, quantity) values (1117, 'Belarus', 'Painting', 'Painter Ferdinand Ruschitz', 'by1392.jpeg', 2020, 0.87, 7);

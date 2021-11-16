@@ -5,13 +5,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import iba.group.diplomAppStore.controller.MainPageController;
+//import iba.group.diplomAppStore.controller.MainPageController;
+import iba.group.diplomAppStore.controller.WebConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(MainPageController.class) //arranges for the test to run in the context of a Spring MVC application
+@WebMvcTest(WebConfig.class) //arranges for the test to run in the context of a Spring MVC application
 public class MainPageControllerTest {
     @Autowired
     private MockMvc mockMvc;

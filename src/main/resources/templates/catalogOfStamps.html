@@ -19,6 +19,7 @@
             <th>Image</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Cart</th>
         </tr>
         </thead>
         <tbody>
@@ -30,7 +31,12 @@
             <td><img th:src="@{'/images/' + ${st.image}}" alt="img"></td>
             <td th:text="${st.price}">1</td>
             <td th:text="${st.quantity}">1</td>
+            <td><a th:href="@{/cart}">Add to Cart</a></td>
         </tr>
         </tbody>
     </table>
+<br>
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 </html>

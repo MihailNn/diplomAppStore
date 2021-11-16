@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cart of Stamps</title>
+</head>
+<body>
+<img width="200" th:src="@{/images/penny.jpg}"/>
+<h1>Your Cart</h1>
+<br>
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+
+</body>
