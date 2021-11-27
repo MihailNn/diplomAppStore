@@ -31,7 +31,7 @@
             <td><img th:src="@{'/images/' + ${st.image}}" alt="img"></td>
             <td th:text="${st.price}">1</td>
             <td th:text="${st.quantity}">1</td>
-            <td><a th:href="@{/cart}">Add to Cart</a></td>
+            <td><a th:href="@{'/cart?stampId=' + ${st.id}}">Add to Cart</a></td>
         </tr>
         </tbody>
     </table>

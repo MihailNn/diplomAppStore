@@ -7,6 +7,12 @@
 <body>
 <img width="200" th:src="@{/images/penny.jpg}"/>
 <h1>Your Cart</h1>
+<table>
+  <tr align="center" th:each="st : ${cart.stamps}">
+    <td th:text="${st.description}">1</td>
+    <td th:text="${st.price}">1</td>
+  </tr>
+</table>
 <br>
 <form method="POST" th:action="@{/logout}">
     <input type="submit" value="Logout"/>
