@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title>Catalog of Stamps</title>
 </head>
+<a th:href="@{/}" id="home">Home</a>
+<a th:href="@{/cart}" id="cart">My Cart</a>
 <body>
 <h1>Catalog of Stamps</h1>
 </body>
@@ -31,7 +33,7 @@
             <td><img th:src="@{'/images/' + ${st.image}}" alt="img"></td>
             <td th:text="${st.price}">1</td>
             <td th:text="${st.quantity}">1</td>
-            <td><a th:href="@{/cart}">Add to Cart</a></td>
+            <td><a th:href="@{'/cart?stampId=' + ${st.id}}">Add to Cart</a></td>
         </tr>
         </tbody>
     </table>

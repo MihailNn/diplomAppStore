@@ -6,7 +6,30 @@
 </head>
 <body>
 <img width="200" th:src="@{/images/penny.jpg}"/>
+<br>
+<a th:href="@{/catalog}" id="catalog">Catalog of stamps</a>
+<a th:href="@{/}" id="home">Home</a>
+<br/>
 <h1>Your Cart</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Country</th>
+        <th>Year</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tr align="center" th:each="st : ${cart.stamps}">
+        <td th:text="${st.country}">1</td>
+        <td th:text="${st.year}">1</td>
+        <td th:text="${st.description}">1</td>
+        <td><img th:src="@{'/images/' + ${st.image}}" alt="img"></td>
+        <td th:text="${st.price}">1</td>
+    </tr>
+</table>
+
 <br>
 <form method="POST" th:action="@{/logout}">
     <input type="submit" value="Logout"/>

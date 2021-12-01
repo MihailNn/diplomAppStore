@@ -1,6 +1,5 @@
 package iba.group.diplomAppStore.controller;
 
-import iba.group.diplomAppStore.domain.Cart;
 import iba.group.diplomAppStore.domain.Stamp;
 import iba.group.diplomAppStore.repository.StampRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +13,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@SessionAttributes("addToCart")
+@RequestMapping("/")
 public class CatalogOfStampsController {
     private final StampRepository stampRepository;
-    @Autowired
+
     public CatalogOfStampsController(StampRepository stampRepository) {
         this.stampRepository = stampRepository;
     }
 
-    @RequestMapping("/catalog")
+    @GetMapping("/catalog")
     public String showCatalog(Model model) {
         Iterable<Stamp> stamps = stampRepository.findAll();
         model.addAttribute("stamps", stamps);
         return "catalogOfStamps";
     }
 
-    @GetMapping("/cart")
-    public String addToCart() {
-//        Optional<Stamp> stampAddToCart = stampRepository.findById((Long) model.getAttribute("id"));
-//        model.addAttribute("toCart", stampAddToCart);
-        return "cart";
-    }
 }
