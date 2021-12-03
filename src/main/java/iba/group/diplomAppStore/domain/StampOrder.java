@@ -1,18 +1,18 @@
 package iba.group.diplomAppStore.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class StampOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,13 +36,12 @@ public class StampOrder {
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
     private static final long serialVersionUID = 1L;
-    private Date placedAt;//= new Date();
+    private Date placedAt = new Date();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Stamp> stamps = new ArrayList<>();
+    @ManyToOne
+    private User user;
 
-    public void addStamp(Stamp stamp) {
-        this.stamps.add(stamp);
-    }
+    @OneToMany
+    private Set<Stamp> stamps = new HashSet<>();
 
 }

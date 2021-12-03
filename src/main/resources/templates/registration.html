@@ -11,6 +11,10 @@
 <form method="POST" th:action="@{/register}" id="registerForm">
     <label for="username">Username: </label>
     <input type="text" name="username"/><br/>
+<!--    <div th:if="${#fields.hasErrors('global')}">-->
+<!--        <h3>Global errors:</h3>-->
+<!--        <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />-->
+<!--    </div>-->
     <label for="password">Password: </label>
     <input type="password" name="password"/><br/>
     <label for="confirm">Confirm password: </label>

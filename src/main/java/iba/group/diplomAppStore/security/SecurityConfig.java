@@ -34,6 +34,11 @@ public class SecurityConfig {
                 .authorizeRequests() //The call to authorizeRequests() returns an object ( ExpressionUrlAuthorizationConfigurer.ExpressionInterceptUrlRegistry) on which you can specify URL paths and patterns and the security requirements for those paths
                   .antMatchers("/cart", "/catalog").hasRole("USER")//Requests for /cart and /catalog should be for users with a granted authority of ROLE_USER. Don’t include the "ROLE_" prefix on roles passed to hasRole(); it will be assumed by hasRole()
                   .antMatchers("/", "/**").permitAll()
+                  .antMatchers("/h2-console/**").permitAll()
+
+                .and()
+                .csrf().disable()
+                .headers().frameOptions().disable()
 
                 .and()
                   .formLogin()//formLogin() to start configuring your custom login form

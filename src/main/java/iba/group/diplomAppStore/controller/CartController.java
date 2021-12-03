@@ -1,17 +1,23 @@
 package iba.group.diplomAppStore.controller;
 
+import iba.group.diplomAppStore.domain.Cart;
 import iba.group.diplomAppStore.domain.Stamp;
 import iba.group.diplomAppStore.repository.StampRepository;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Controller
@@ -22,7 +28,7 @@ public class CartController {
         this.stampRepository = stampRepository;
     }
 
-    @ModelAttribute
+    @ModelAttribute //вызывается Springом каждый раз перед вызовом addTocart
     Cart populateCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
@@ -33,15 +39,17 @@ public class CartController {
     }
 
     @GetMapping("/cart")
-    public String addToCart(@RequestParam Long stampId, Cart cart) {
-        stampRepository.findById(stampId).ifPresent(stamp -> cart.getStamps().add(stamp));
+    public String addToCart(@RequestParam(required = false) Long stampId, Cart cart) {
+        if(stampId != null) {
+            stampRepository.findById(stampId).ifPresent(stamp -> cart.getStamps().add(stamp));
+        }
         return "cart";
     }
 
 
-    @Getter
-    @Data
-    public static class Cart {
-        Set<Stamp> stamps = new HashSet<>();
-    }
+//    @Getter
+//    @Data
+//    public static class Cart {
+//        Set<Stamp> stamps = new HashSet<>();
+//    }
 }

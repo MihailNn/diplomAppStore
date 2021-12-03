@@ -20,4 +20,5 @@ public class Stamp {
     private Integer year;
     private Double price;
     private Integer quantity;
+    private Integer orderedQuantity;
 }

@@ -1,12 +1,16 @@
 package iba.group.diplomAppStore.controller;
 
 import iba.group.diplomAppStore.domain.RegistrationForm;
+import iba.group.diplomAppStore.domain.User;
 import iba.group.diplomAppStore.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/register")
@@ -31,8 +35,16 @@ public class RegistrationController {
 //    In this way, the submitted password is written in an encoded form, and the user details service
 //    will be able to authenticate against that encoded password.
     @PostMapping
-    public String processRegistration(RegistrationForm form) {
-        userRepo.save(form.toUser(passwordEncoder));
+    public String processRegistration(RegistrationForm form, Errors error) {
+        System.out.println(form.getUsername());
+//        User nameUser = userRepo.findByUsername(form.getUsername());
+//        if (nameUser != null) {
+            userRepo.save(form.toUser(passwordEncoder));
+//        }
+//        else  {
+//            error.reject("", "Such user exist");
+//            return "registration";
+//        }
         return "redirect:/login";
     }
 }
