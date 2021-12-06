@@ -36,15 +36,14 @@ public class RegistrationController {
 //    will be able to authenticate against that encoded password.
     @PostMapping
     public String processRegistration(RegistrationForm form, Errors error) {
-        System.out.println(form.getUsername());
-//        User nameUser = userRepo.findByUsername(form.getUsername());
-//        if (nameUser != null) {
+        User nameUser = userRepo.findByUsername(form.getUsername());
+        if (nameUser == null) {
             userRepo.save(form.toUser(passwordEncoder));
-//        }
-//        else  {
+        }
+        else  {
 //            error.reject("", "Such user exist");
-//            return "registration";
-//        }
+            return "registration";
+        }
         return "redirect:/login";
     }
 }

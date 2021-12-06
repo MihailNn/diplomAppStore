@@ -1,5 +1,6 @@
 package iba.group.diplomAppStore.controller;
 
+import iba.group.diplomAppStore.domain.Cart;
 import iba.group.diplomAppStore.domain.StampOrder;
 import iba.group.diplomAppStore.domain.User;
 import iba.group.diplomAppStore.repository.OrderRepository;
@@ -8,12 +9,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -31,14 +30,27 @@ public class OrderController {
 
     @PostMapping
     public String addOrder(@Valid StampOrder order, Errors errors, SessionStatus sessionStatus,
-                               @AuthenticationPrincipal User user) {
+                               @AuthenticationPrincipal User user, HttpSession session) {
+        Cart cart = (Cart) session.getAttribute("cart");
         if (errors.hasErrors()) {
             return "order";
         }
         Optional<User> userOp = userRepository.findById(user.getId());
         order.setUser(userOp.get());
         orderRepo.save(order);
+        cart.getStamps().clear();
         sessionStatus.setComplete();
         return "redirect:/";
     }
+    @ModelAttribute
+    StampOrder populateOrder(HttpSession session) {
+        Cart cart = (Cart) session.getAttribute("cart");
+        StampOrder stampOrder = new StampOrder();
+        stampOrder.setStamps(cart.getStamps());
+        return stampOrder;
+    }
+    @GetMapping
+    public String getOrder() {
+        return "order";
+     }
 }

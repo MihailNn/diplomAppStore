@@ -41,7 +41,7 @@ public class StampOrder {
     @ManyToOne
     private User user;
 
-    @OneToMany
+    @ManyToMany
     private Set<Stamp> stamps = new HashSet<>();
 
 }
