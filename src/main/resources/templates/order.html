@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Order</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/style.css}"/>
 </head>
 <img width="200" th:src="@{/images/penny.jpg}"/>
 <br>
 
-<a th:href="@{/}" id="home">Home</a>
-<a th:href="@{/cart}" id="cart">Your Cart</a>
+<a th:href="@{/}" id="home" class="button">Home</a>
+<a th:href="@{/cart}" id="cart" class="button">Your Cart</a>
 <br/>
 <h1>Order Form</h1>
 <body>
 <form th:action="@{/order}" th:object="${stampOrder}" th:method="post">
-    <a th:href="@{/catalog}" id="catalog">Go to Catalog</a><br/>
+    <a th:href="@{/catalog}" id="catalog" class="button">Go to Catalog</a><br/>
     <h3>Deliver my Order to...</h3>
 
     <label for="deliveryName">Name: </label>

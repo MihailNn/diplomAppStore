@@ -3,13 +3,16 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>App Stamp Store</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/style.css}"/>
 </head>
 <body>
 <img width="200" th:src="@{/images/penny.jpg}"/>
-<a th:href="@{/catalog}" id="catalog">Catalog of stamps</a><br/>
-<a th:href="@{/cart}" id="cart">My Cart</a>
-<a th:href="@{/login}" id="login">Login</a>
-<a th:href="@{/register}" id="register">Registration</a>
+<a th:href="@{/catalog}" id="catalog" class="button">Catalog of stamps</a>
+<a th:href="@{/cart}" id="cart" class="button">My Cart</a>
+<a th:href="@{/login}" id="login" class="button">Login</a>
+<a th:href="@{/register}" id="register" class="button">Registration</a>
+
 <h1>Welcome!!!</h1>
 <h2>Buy Postage Stamps</h2>
 

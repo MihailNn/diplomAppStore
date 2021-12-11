@@ -10,7 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
+//@Configuration аннотация указывает Spring, что это класс конфигурации, который будет предоставлять компоненты для контекста приложения Spring.
+//        Методы класса конфигурации снабжены аннотациями @Bean, указывающими, что возвращаемые ими объекты должны быть добавлены в качестве компонентов в контексте приложения (где по умолчанию их соответствующие компонентам ID будут совпадать с именами методов, которые их определяют).
 @Configuration
 public class SecurityConfig {
     @Bean

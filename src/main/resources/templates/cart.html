@@ -3,12 +3,14 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Cart of Stamps</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/style.css}"/>
 </head>
 <body>
 <img width="200" th:src="@{/images/penny.jpg}"/>
 <br>
-<a th:href="@{/catalog}" id="catalog">Continue shopping</a>
-<a th:href="@{/}" id="home">Home</a>
+<a th:href="@{/catalog}" id="catalog" class="button">Continue shopping</a>
+<a th:href="@{/}" id="home" class="button">Home</a>
 <br/>
 <h1>Your Cart</h1>
 <table border="1">
