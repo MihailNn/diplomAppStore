@@ -1,0 +1,11 @@
+.button {
+    background-color: rgba(0, 0, 0, 0.20);
+    color: #0060ff;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 2px;
+    cursor: pointer;
+}

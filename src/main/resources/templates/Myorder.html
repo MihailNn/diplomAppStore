@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/style.css}"/>
 </head>
 <body>
+<img width="200" th:src="@{/images/penny.jpg}"/>
+<a th:href="@{/catalog}" id="catalog" class="button">Catalog of stamps</a>
+<a th:href="@{/}" id="home" class="button">Home</a>
+
+<h1>My Order</h1>
+
 
 </body>
 </html>
