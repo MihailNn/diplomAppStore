@@ -46,10 +46,4 @@ public class CartController {
         return "cart";
     }
 
-
-//    @Getter
-//    @Data
-//    public static class Cart {
-//        Set<Stamp> stamps = new HashSet<>();
-//    }
 }

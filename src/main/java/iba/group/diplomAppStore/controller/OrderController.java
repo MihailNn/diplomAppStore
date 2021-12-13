@@ -40,7 +40,7 @@ public class OrderController {
         orderRepo.save(order);
         cart.getStamps().clear();
         sessionStatus.setComplete();
-        return "redirect:/";
+        return "Myorder";
     }
     @ModelAttribute
     StampOrder populateOrder(HttpSession session) {

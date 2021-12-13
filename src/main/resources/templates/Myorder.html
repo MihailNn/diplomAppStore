@@ -11,8 +11,46 @@
 <a th:href="@{/catalog}" id="catalog" class="button">Catalog of stamps</a>
 <a th:href="@{/}" id="home" class="button">Home</a>
 
-<h1>My Order</h1>
+<h1>My Orders</h1>
 
+<div>
+    <div th:each="myOr : ${stampOrder}">
+        <h2>Delivery Information</h2>
+        <div th:text="'Name : ' + ${myOr.deliveryName}"></div>
+        <div th:text="'Street : ' + ${myOr.deliveryStreet}"></div>
+        <div th:text="'City : ' + ${myOr.deliveryCity}"></div>
+        <div th:text="'State : ' + ${myOr.deliveryState}"></div>
+        <div th:text="'ZIP : ' + ${myOr.deliveryZip}"></div>
+        <h2>Payment Information</h2>
+        <div th:text="'Credit Card Number : ' + ${myOr.ccNumber}"></div>
+        <div th:text="'Credit Card Expiration : ' + ${myOr.ccExpiration}"></div>
+        <div th:text="'Credit Card CVV : ' + ${myOr.ccCVV}"></div>
+        <div th:text="'Placed at : ' + ${myOr.placedAt}"></div>
+    </div>
+    <h2>My Odered Stamps</h2>
+    <table border="1" >
+        <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="center" th:each="mySt : ${stampOrder.stamps}">
+            <td th:text="${mySt.getCountry()}">1</td>
+            <td th:text="${mySt.getYear()}">1</td>
+<!--            <td th:text="${mySt.description}">1</td>-->
+<!--            <td><img th:src="@{'/images/' + ${mySt.image}}" alt="img"></td>-->
+<!--            <td th:text="${mySt.price}">1</td>-->
+<!--            <td th:text="${mySt.quantity}">1</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
