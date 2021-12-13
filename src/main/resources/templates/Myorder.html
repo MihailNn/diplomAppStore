@@ -41,12 +41,12 @@
         </thead>
         <tbody>
         <tr align="center" th:each="mySt : ${stampOrder.stamps}">
-            <td th:text="${mySt.getCountry()}">1</td>
-            <td th:text="${mySt.getYear()}">1</td>
-<!--            <td th:text="${mySt.description}">1</td>-->
-<!--            <td><img th:src="@{'/images/' + ${mySt.image}}" alt="img"></td>-->
-<!--            <td th:text="${mySt.price}">1</td>-->
-<!--            <td th:text="${mySt.quantity}">1</td>-->
+            <td th:text="${mySt.country}">1</td>
+            <td th:text="${mySt.year}">1</td>
+            <td th:text="${mySt.description}">1</td>
+            <td><img th:src="@{'/images/' + ${mySt.image}}" alt="img"></td>
+            <td th:text="${mySt.price}">1</td>
+            <td th:text="${mySt.quantity}">1</td>
         </tr>
         </tbody>
     </table>

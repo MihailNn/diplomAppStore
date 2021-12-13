@@ -46,7 +46,7 @@ public class OrderController {
     StampOrder populateOrder(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         StampOrder stampOrder = new StampOrder();
-        stampOrder.setStamps(cart.getStamps());
+        stampOrder.getStamps().addAll(cart.getStamps());
         return stampOrder;
     }
     @GetMapping

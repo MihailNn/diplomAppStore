@@ -33,10 +33,6 @@ public class MyOrderControler {
 //    @GetMapping
 //    public String getMyOrder(Model model, @AuthenticationPrincipal User user, StampOrder stampOrder) {
 //        Iterable<StampOrder> myOrder = orderRepository.findByUserId(user.getId());
-//        Set<Stamp> myOderedStamps = myOrder.getStamps();
-//        for (Stamp st : myOderedStamps) {
-//            System.out.println(st.getCountry());
-//        }
 //        model.addAttribute("myOrder", myOrder);
 ////        model.addAttribute("myOderedStamps", myOderedStamps);
 //        return "Myorder";
